@@ -5,7 +5,8 @@ void foghetinho::Init()
 {
   LSensor.Init();
   RSensor.Init();
-  //El servo de dirección ya lo hemos inicializado en el constructor.
+  //El servo de dirección ya lo hemos inicializado en el constructor, pero aquí lo ponemos en dirección al frente.
+  Direccion.write(90);
 }
 
 
