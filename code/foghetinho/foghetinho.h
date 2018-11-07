@@ -11,7 +11,7 @@ private:
 public:
 	foghete(  int ls,
                   int rs,
-                  int dir) : LSensor(ls), RSensor(rs), Direccion(dir) {}
+                  int dir) : LSensor(ls), RSensor(rs), Direccion.attach(dir) {}
 	
 	void Init();
 	void Go();
