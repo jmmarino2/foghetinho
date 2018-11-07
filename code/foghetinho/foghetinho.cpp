@@ -3,7 +3,9 @@
 
 void foghetinho::Init()
 {
-  Direccion.Init();
+  LSensor.Init();
+  RSensor.Init();
+  //El servo de dirección ya lo hemos inicializado en el constructor.
 }
 
 
@@ -22,18 +24,18 @@ void foghetinho::Go()
   else if ( ( lsensor == 0 ) && ( rsensor == 1 ) )   //Si detectamos linea en el sensor derecho...
     {
     //... debemos girar a la derecha para corregir la trayectoria.
-    Direccion.Right();
+    Direccion.write(60);
     }
   else if ( ( lsensor == 1 ) && ( rsensor == 0 ) )   //Si detectamos linea en el sensor izquierdo...
     {
     //... debemos girar a la izquierda para corregir la trayectoria.
-    Direccion.Left();
+    Direccion.write(120);
     }
   else if ( ( lsensor == 1 ) && ( rsensor == 1 ) )   //Si detectamos linea en los dos sensores...
     {
     //... podria ser que tengamos los sensores demasiado juntos,
     //o podria ser que hemos cruzado una linea justo por la perpendicular.
     //Ante la duda seguimos adelante.
-    Direccion.Straight();
+    Direccion.write(90);
     }
 }
